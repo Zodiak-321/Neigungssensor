@@ -41,7 +41,7 @@ uint8_t QMC5883P_Init(struct QMC5883P_Data *QMC5883P_Data)
     if (data != QMC5883P_CHIP_ID)
         return QMC5883P_ERROR_ID;
 
-    data = QMC5883P_CONTROL_2_RNG_2G;
+    data = QMC5883P_CONTROL_2_RNG;
     if (QMC5883P_Transmit(QMC5883P_Data, QMC5883P_REG_CONTROL_2, &data, 1) != HAL_OK)
         return QMC5883P_ERROR;
 
@@ -73,9 +73,9 @@ uint8_t QMC5883P_Read_Mag(struct QMC5883P_Data *QMC5883P_Data)
     int16_t raw_z = (int16_t)((data[5] << 8) | data[4]);
 
     // 转换为高斯值
-    QMC5883P_Data->mag_x = (float)raw_x / QMC5883_RNG_SENSITIVITY_2G;
-    QMC5883P_Data->mag_y = (float)raw_y / QMC5883_RNG_SENSITIVITY_2G;
-    QMC5883P_Data->mag_z = (float)raw_z / QMC5883_RNG_SENSITIVITY_2G;
+    QMC5883P_Data->mag_x = (float)raw_x / QMC5883_RNG_SENSITIVITY;
+    QMC5883P_Data->mag_y = (float)raw_y / QMC5883_RNG_SENSITIVITY;
+    QMC5883P_Data->mag_z = (float)raw_z / QMC5883_RNG_SENSITIVITY;
 
     QMC5883P_Data->mag_x = (QMC5883P_Data->mag_x - MAG_X_OFFSET) * MAG_X_SCALE;
     QMC5883P_Data->mag_y = (QMC5883P_Data->mag_y - MAG_Y_OFFSET) * MAG_Y_SCALE;
@@ -139,4 +139,5 @@ void QMC5883P_Calibration(struct QMC5883P_Data *QMC5883P_Data)
         printf("%f, %f, %f, %f, %f, %f\n", mag_offset[0], mag_offset[1], mag_offset[2], mag_scale[0], mag_scale[1], mag_scale[2]);
     }
 }
+
 
