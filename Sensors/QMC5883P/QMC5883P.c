@@ -26,41 +26,29 @@ uint8_t QMC5883P_Init(struct QMC5883P_Data *QMC5883P_Data)
     // Reset the sensor
     data = QMC5883P_CONTROL_2_SOFT_RESET;
     if (QMC5883P_Transmit(QMC5883P_Data, QMC5883P_REG_CONTROL_2, &data, 1) != HAL_OK)
-    {
         return QMC5883P_ERROR;
-    }
 
     HAL_Delay(100);
 
     data = 0x00;
     if (QMC5883P_Transmit(QMC5883P_Data, QMC5883P_REG_CONTROL_2, &data, 1) != HAL_OK)
-    {
         return QMC5883P_ERROR;
-    }
-
+    
      HAL_Delay(100);
 
     if (QMC5883P_Receive(QMC5883P_Data, QMC5883P_REG_CHIP_ID, &data, 1) != HAL_OK)
-    {
         return QMC5883P_ERROR;
-    }
     if (data != QMC5883P_CHIP_ID)
-    {
         return QMC5883P_ERROR_ID;
-    }
 
     data = QMC5883P_CONTROL_2_RNG_2G;
     if (QMC5883P_Transmit(QMC5883P_Data, QMC5883P_REG_CONTROL_2, &data, 1) != HAL_OK)
-    {
         return QMC5883P_ERROR;
-    }
 
     // Configure the sensor
     data = QMC5883P_CONTROL_1_MODE_CONT | QMC5883P_CONTROL_1_ODR | QMC5883P_CONTROL_1_OSR1_2 | QMC5883P_CONTROL_1_OSR2_2;
     if (QMC5883P_Transmit(QMC5883P_Data, QMC5883P_REG_CONTROL_1, &data, 1) != HAL_OK)
-    {
         return QMC5883P_ERROR;
-    }
 
     return QMC5883P_OK;
 }
@@ -77,9 +65,7 @@ uint8_t QMC5883P_Read_Mag(struct QMC5883P_Data *QMC5883P_Data)
 
     res = QMC5883P_Receive(QMC5883P_Data, QMC5883P_REG_XOUT_L, data, 6);
     if (res != HAL_OK)
-    {
         return QMC5883P_ERROR;
-    }
 
     // 将数据拼接为16位有符号整数
     int16_t raw_x = (int16_t)((data[1] << 8) | data[0]);
@@ -109,9 +95,7 @@ uint8_t QMC5883P_Read_INT_Status(struct QMC5883P_Data *QMC5883P_Data)
 
     res = QMC5883P_Receive(QMC5883P_Data, QMC5883P_REG_STATUS, &QMC5883P_Data->int_status, 1);
     if (res != HAL_OK)
-    {
         return QMC5883P_ERROR;
-    }
 
     return QMC5883P_OK;
 }
@@ -150,10 +134,9 @@ void QMC5883P_Calibration(struct QMC5883P_Data *QMC5883P_Data)
         }
         avg_delta = (mag_scale[0] + mag_scale[1] + mag_scale[2]) / 3;
         for(int i = 0; i < 3; i++)
-        {
             mag_scale[i] = avg_delta / mag_scale[i];
-        }
 
         printf("%f, %f, %f, %f, %f, %f\n", mag_offset[0], mag_offset[1], mag_offset[2], mag_scale[0], mag_scale[1], mag_scale[2]);
     }
 }
+
