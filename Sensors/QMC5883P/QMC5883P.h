@@ -24,7 +24,7 @@
 
 // 参数调整
 #define QMC5883P_CONTROL_1_ODR  QMC5883P_CONTROL_1_ODR_200HZ     //输出速率，详见下方QMC5883P RATE
-#defien QMC5883P_CONTROL_2_RNG  QMC5883P_CONTROL_2_RNG_2G        //采样范围，详见下方QMC5883P RANGE
+#define QMC5883P_CONTROL_2_RNG  QMC5883P_CONTROL_2_RNG_2G        //采样范围，详见下方QMC5883P RANGE
 #define QMC5883_RNG_SENSITIVITY QMC5883_RNG_SENSITIVITY_2G       //灵敏度，详见下方QMC5883P SENSITIVITY，范围必须和QMC5883P RANGE一样
 
 /*==============================================================================================*/
@@ -122,3 +122,4 @@ void QMC5883P_Calibration(struct QMC5883P_Data *QMC5883P_Data);         /* 磁�
 
 
 #endif /* __QMC5883P_H__ */
+
