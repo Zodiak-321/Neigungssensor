@@ -5,4 +5,4 @@ Logs：
 
 ## 函数介绍
 
-'HAL_StatusTypeDef QMC5883P_Transmit(struct QMC5883P_Data *QMC5883P_Data, uint8_t reg, uint8_t *data, uint16_t size)'
+- HAL_StatusTypeDef QMC5883P_Transmit(struct QMC5883P_Data *QMC5883P_Data, uint8_t reg, uint8_t *data, uint16_t size)
