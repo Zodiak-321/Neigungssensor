@@ -22,7 +22,10 @@
 #define MAG_Y_SCALE             1.026078f
 #define MAG_Z_SCALE             0.997570f
 
-#define QMC5883P_CONTROL_1_ODR  QMC5883P_CONTROL_1_ODR_200HZ     //10,50,100,200Hz      输出速率
+// 参数调整
+#define QMC5883P_CONTROL_1_ODR  QMC5883P_CONTROL_1_ODR_200HZ     //输出速率，详见下方QMC5883P RATE
+#defien QMC5883P_CONTROL_2_RNG  QMC5883P_CONTROL_2_RNG_2G        //采样范围，详见下方QMC5883P RANGE
+#define QMC5883_RNG_SENSITIVITY QMC5883_RNG_SENSITIVITY_2G       //灵敏度，详见下方QMC5883P SENSITIVITY，范围必须和QMC5883P RANGE一样
 
 /*==============================================================================================*/
 /*=============================================定义=============================================*/ 
@@ -50,10 +53,7 @@
 #define QMC5883P_CONTROL_1_MODE_NORMAL   0x01  // Normal mode
 #define QMC5883P_CONTROL_1_MODE_SINGLE   0x02  // Single mode
 #define QMC5883P_CONTROL_1_MODE_CONT     0x03  // Continuous mode
-#define QMC5883P_CONTROL_1_ODR_10HZ      0x00  // Output Data Rate: 10Hz
-#define QMC5883P_CONTROL_1_ODR_50HZ      0x04  // Output Data Rate: 50Hz
-#define QMC5883P_CONTROL_1_ODR_100HZ     0x08  // Output Data Rate: 100Hz
-#define QMC5883P_CONTROL_1_ODR_200HZ     0x0C  // Output Data Rate: 200Hz
+
 #define QMC5883P_CONTROL_1_OSR1_8        0x00  // Over Sample Rate: 8
 #define QMC5883P_CONTROL_1_OSR1_4        0x10  // Over Sample Rate: 4
 #define QMC5883P_CONTROL_1_OSR1_2        0x20  // Over Sample Rate: 2
@@ -66,16 +66,25 @@
 // QMC5883P Control Register 2 Bits
 #define QMC5883P_CONTROL_2_SOFT_RESET    0x80  // Soft reset
 #define QMC5883P_CONTROL_2_SELF_TEST     0x40  // Self test
+#define QMC5883P_CONTROL_2_MODE          0x00  // SET/RESET MODE
+
+// QMC5883P RATE
+#define QMC5883P_CONTROL_1_ODR_10HZ      0x00  // Output Data Rate: 10Hz
+#define QMC5883P_CONTROL_1_ODR_50HZ      0x04  // Output Data Rate: 50Hz
+#define QMC5883P_CONTROL_1_ODR_100HZ     0x08  // Output Data Rate: 100Hz
+#define QMC5883P_CONTROL_1_ODR_200HZ     0x0C  // Output Data Rate: 200Hz
+
+// QMC5883P RANGE
 #define QMC5883P_CONTROL_2_RNG_2G        0x0C  // Range: ±2G
 #define QMC5883P_CONTROL_2_RNG_8G        0x08  // Range: ±8G
 #define QMC5883P_CONTROL_2_RNG_12G       0x04  // Range: ±12G
 #define QMC5883P_CONTROL_2_RNG_30G       0x00  // Range: ±30G
-#define QMC5883P_CONTROL_2_MODE          0x00  // SET/RESET MODE
 
-#define QMC5883_RNG_SENSITIVITY_2G   15000 // LSB/Gauss
-#define QMC5883_RNG_SENSITIVITY_8G   3750  // LSB/Gauss
-#define QMC5883_RNG_SENSITIVITY_12G  2500  // LSB/Gauss
-#define QMC5883_RNG_SENSITIVITY_30G  1000  // LSB/Gauss
+// QMC5883P SENSITIVITY
+#define QMC5883_RNG_SENSITIVITY_2G       15000 // LSB/Gauss
+#define QMC5883_RNG_SENSITIVITY_8G       3750  // LSB/Gauss
+#define QMC5883_RNG_SENSITIVITY_12G      2500  // LSB/Gauss
+#define QMC5883_RNG_SENSITIVITY_30G      1000  // LSB/Gauss
 
 extern struct QMC5883P_Data{
 
@@ -110,5 +119,6 @@ uint8_t QMC5883P_Read_Mag(struct QMC5883P_Data *QMC5883P_Data);         /* 读�
 uint8_t QMC5883P_Read_INT_Status(struct QMC5883P_Data *QMC5883P_Data);  /* 读取中断状态 */
 
 void QMC5883P_Calibration(struct QMC5883P_Data *QMC5883P_Data);         /* 磁力计校准 */
+
 
 #endif /* __QMC5883P_H__ */
