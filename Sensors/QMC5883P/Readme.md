@@ -19,13 +19,15 @@ void QMC5883P_Calibration(struct QMC5883P_Data *QMC5883P_Data);         /* 磁�
 
 如果你是第一次在你的板子上使用磁力计或者在一个周围含铁制环境的的地方固定你的磁力计,请务必调用该函数
 
-''// 磁力计校准参数
+'''C
+// 磁力计校准参数
 #define MAG_X_OFFSET            0.068928f
 #define MAG_Y_OFFSET            0.003696f
 #define MAG_Z_OFFSET            0.024412f
 #define MAG_X_SCALE             0.977537f
 #define MAG_Y_SCALE             1.026078f
-#define MAG_Z_SCALE             0.997570f''
+#define MAG_Z_SCALE             0.997570f
+'''
 
 将输出的数据填入.h文件中的数据,进行硬软铁校准
 
