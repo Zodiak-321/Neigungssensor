@@ -18,7 +18,7 @@ FSYNC （synchronize）引脚的核心功能是同步。但它有两种工作模
 
 #### 同步模式
 
-![FSYNC1](//Photos/MPU6500_questionMark/FSYNC1.png)
+![FSYNC1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FSYNC1.png)
 
 MPU6500 的同步模式的配置仅由配置寄存器（Register 26 – Configuration）控制。
 
@@ -521,5 +521,6 @@ FIFO 的全称是 First-In, First-Out（先进先出）。你可以把它想象�
 ### 关于offset寄存器的简述
 
 1. 
+
 
 
