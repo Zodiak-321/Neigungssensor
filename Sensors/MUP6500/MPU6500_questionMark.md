@@ -38,7 +38,7 @@ MPU6500 的中断模式的配置主要由中断配置寄存器（Register 55 –
 
 1. 中断配置寄存器（Register 55 – INT_PIN_CFG）
 
-    ![FSYNC2](photos\FSYNC2.png)
+    ![FSYNC2](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FSYNC2.png)
 
     这个寄存器有两个位专门控制 FSYNC 的中断模式：
 
@@ -64,8 +64,8 @@ MPU6500 的中断模式的配置主要由中断配置寄存器（Register 55 –
 
 2. 中断使能寄存器（Register 56 – INT_ENABLE）
 
-    ![FSYNC3_1](photos\FSYNC3_1.png)
-    ![FSYNC3_2](photos\FSYNC3_2.png)
+    ![FSYNC3_1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FSYNC3_1.png)
+    ![FSYNC3_2](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FSYNC3_2.png)
 
     INT_ENABLE 位 [3] - FSYNC_INT_EN
 
@@ -133,7 +133,7 @@ FSYNC作中断模式时就是一个简单的经过MPU6500 的一个中断，且�
 
 1. 中断引脚配置寄存器 INT_PIN_CFG (Register 55)
     
-    ![INT1](photos\INT1.png)
+    ![INT1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/INT1.png)
     
     这个寄存器不决定“什么事”会触发中断，而是决定中断引脚 “如何工 作”。
 
@@ -171,8 +171,8 @@ FSYNC作中断模式时就是一个简单的经过MPU6500 的一个中断，且�
 
 2. 中断使能寄存器 INT_ENABLE (Register 56) 
 
-    ![INT2_1](photos\INT2_1.png)
-    ![INT2_2](photos\INT2_2.png)
+    ![INT2_1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/INT2_1.png)
+    ![INT2_2](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/INT2_2.png)
     
     这个寄存器是中断源的总开关。每一位控制一种类型的中断是否被允许去 触发 INT 引脚。
 
@@ -186,7 +186,7 @@ FSYNC作中断模式时就是一个简单的经过MPU6500 的一个中断，且�
 
 3. 中断状态寄存器 INT_STATUS (Register 58)
 
-    ![INT3](photos\INT3.png)
+    ![INT3](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/INT3.png)
     
     当 INT 引脚有效时，主机必须读取这个寄存器来查明具体是哪个事件引 起的中断。它的位定义与 INT_ENABLE 寄存器完全一一对应。
 
@@ -259,8 +259,8 @@ Fs可以通过GYRO和ACCEL获取分别的数值，所以在我们提出已知的
 
 MPU6500 的滤波器可以简单看作成两层，一层是数字低通滤波器(DLPF或A_DLPF_CFG)，另一层是滤波器旁路控制(FCHOICE_B或ACCEL_FCHOICE_B)。这两层只能任选其一，不能同时使用。
 
-![ODR1](photos\ODR1.png)
-![ODR2](photos\ODR2.png)
+![ODR1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR1.png)
+![ODR2]([https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR2.png)
 
 上图分别为GYRO的配置图和ACCEL的配置图，分别展示了在不同的寄存器配置下的传感器输出带宽(Bandwidth)，延迟(Delay)，内部采样率(Fs或Rate)等。
 
@@ -276,7 +276,7 @@ GYRO所对应的是DLPF和FCHOICE_B，ACCEL所对应的是A_DLPF_CFG和ACCEL_FCH
 
 1. 采样率分频器 (SMPLRT_DIV) 
 
-    ![ODR3](photos\ODR3.png)
+    ![ODR3](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR3.png)
 
     此寄存器主要用于配置Simple_Div。
 
@@ -286,13 +286,13 @@ GYRO所对应的是DLPF和FCHOICE_B，ACCEL所对应的是A_DLPF_CFG和ACCEL_FCH
 
 2. 配置寄存器（Register 26 – Configuration）
 
-    ![ODR4](photos\ODR4.png)
+    ![ODR4](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR4.png)
 
     主要看[2:0]的DLPF_CFG，此位为GYRO的数字低通滤波器配置。
 
 3. 陀螺仪配置 （Register 27 – Gyroscope Configuration）
 
-    ![ODR5](photos\ODR5.png)
+    ![ODR5](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR5.png)
 
     [7:5]分别为xyz轴陀螺仪的自检
 
@@ -302,8 +302,8 @@ GYRO所对应的是DLPF和FCHOICE_B，ACCEL所对应的是A_DLPF_CFG和ACCEL_FCH
 
 4. 加速度计配置 （Register 28 – Accelerometer Configuration）
 
-    ![ODR6_1](photos\ODR6_1.png)
-    ![ODR6_2](photos\ODR6_2.png)
+    ![ODR6_1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR6_1.png)
+    ![ODR6_2](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR6_2.png)
 
     [7:5]分别为xyz轴加速度计的自检
 
@@ -311,7 +311,7 @@ GYRO所对应的是DLPF和FCHOICE_B，ACCEL所对应的是A_DLPF_CFG和ACCEL_FCH
 
 5. 加速度计配置2 （Register 29 – Accelerometer Configuration 2 ）
 
-    ![ODR7](photos\ODR7.png)
+    ![ODR7](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR7.png)
 
     [3]为ACCEL_FCHOICE_B，此位为ACCEL的滤波器旁路控制配置。
 
@@ -347,8 +347,8 @@ GYRO所对应的是DLPF和FCHOICE_B，ACCEL所对应的是A_DLPF_CFG和ACCEL_FCH
 
       大多数教程代码都是直接用GYRO去计算的，因为他们可能压根就不知道加速度计和陀螺仪的ODR其实是可以不一样的，都是使用的推荐的1KHz的内部采样率去计算的Simple_Div。
 
-      ![ODR1](photos\ODR1.png)
-      ![ODR2](photos\ODR2.png)
+      ![ODR1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR1.png)
+      ![ODR2](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR2.png)
 
       确实通过表可以看出大多数时候加速度计和陀螺仪的内部采样率确实都是1KHz，此时Simple_Div通用完全没问题。
 
@@ -383,7 +383,7 @@ GYRO所对应的是DLPF和FCHOICE_B，ACCEL所对应的是A_DLPF_CFG和ACCEL_FCH
 
       我想应该是来源于这里
 
-      ![ODR8](photos\ODR8.png)
+      ![ODR8](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR8.png)
 
       这个是加速度配置寄存器2下面的一句话，大概说的是在计算ODR公式下加速度计的输出速率可以配置出来的一个子集。很多人可能就理解成加速度计是不是只能输出这个子集里面的数据，然后就将Simple_Div取成只能计算出这个子集的系数。这是很严重的错误。
 
@@ -393,7 +393,7 @@ GYRO所对应的是DLPF和FCHOICE_B，ACCEL所对应的是A_DLPF_CFG和ACCEL_FCH
 
       这些值（3.91, 7.81... 1K）是一个示例性子集，目的是向读者展示，通过将 SMPLRT_DIV 设置为 2的幂次方减一 的值，可以得到一系列非常“整洁”的输出数据率 (ODR)。
 
-      ![ODR9](photos\ODR9.png)
+      ![ODR9](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/ODR9.png)
 
       其实再往下看看手册，就会发现其实这是和低功耗有关的，但是假如你不是特别要求这一块，Simple_Div对于你来说就是0-255。
 
@@ -433,13 +433,13 @@ FIFO 的全称是 First-In, First-Out（先进先出）。你可以把它想象�
 
 1. 配置寄存器（Register 26 – Configuration）
 
-    ![FIFO1](photos\FIFO1.png)
+    ![FIFO1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO1.png)
 
     [6]FIFO_MODE，1为FIFO写满后新数据不再写入，0为写满后新数据覆盖最老的数据
 
 2. FIFO使能（Register 35 – FIFO Enable）
 
-    ![FIFO7](photos\FIFO7.png)
+    ![FIFO7](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO7.png)
 
     [7:3]为开启温度，加速度，陀螺仪数据写入FIFO。
 
@@ -447,20 +447,20 @@ FIFO 的全称是 First-In, First-Out（先进先出）。你可以把它想象�
 
 3. 中断使能（Register 56 – Interrupt Enable）
    
-    ![FIFO2_2](photos\FIFO2_2.png)
-    ![FIFO2_1](photos\FIFO2_1.png)
+    ![FIFO2_2](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO2_2.png)
+    ![FIFO2_1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO2_1.png)
 
     [4]使能FIFO溢出中断
 
 4. 中断状态（Register 58 – Interrupt Status）
 
-    ![FIFO3](photos\FIFO3.png)
+    ![FIFO3](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO3.png)
 
     [4]FIFO溢出中断触发，此时假如你开启了FIFO覆盖，则触发中断时最旧的数据已经被覆盖了
 
 5. FIFO计数器寄存器（Register 114 and 115 – FIFO Count Registers）
 
-    ![FIFO4](photos\FIFO4.png)
+    ![FIFO4](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO4.png)
 
     寄存器114的[4:0]为FIFO计数器的[12:8]位
 
@@ -472,8 +472,8 @@ FIFO 的全称是 First-In, First-Out（先进先出）。你可以把它想象�
 
 6. FIFO读写（Register 116 – FIFO Read Write）
 
-    ![FIFO5_1](photos\FIFO5_1.png)
-    ![FIFO5_2](photos\FIFO5_2.png)
+    ![FIFO5_1](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO5_1.png)
+    ![FIFO5_2](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO5_2.png)
     读取一个字节的数据
 
     需要连续读取该寄存器，也就是你可以设置一个读取长度，当FIFO计数器达到这个数的时候，你就连续读取这个长度的数据。
@@ -482,7 +482,7 @@ FIFO 的全称是 First-In, First-Out（先进先出）。你可以把它想象�
 
 7. 用户控制（Register 106 – User Control）
 
-    ![FIFO6](photos\FIFO6.png)
+    ![FIFO6](https://github.com/Zodiak-321/Neigungssensor/blob/3284ff03ae744c0b5c313f8713a509f5b1c1c176/Photos/MPU6500_questionMark/FIFO6.png)
 
     [6]FIFO_EN，FIFO的总开关
 
@@ -521,6 +521,7 @@ FIFO 的全称是 First-In, First-Out（先进先出）。你可以把它想象�
 ### 关于offset寄存器的简述
 
 1. 
+
 
 
 
