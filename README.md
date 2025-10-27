@@ -4,5 +4,8 @@
 
 # 具有开源的硬件
 
+请移步:https://oshwhub.com/jealousy321/attitude-sensor-mpu6500--qmc588
+
+成品图片
 
 联系方式QQ:2581135738
